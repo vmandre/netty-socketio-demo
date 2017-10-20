@@ -38,7 +38,8 @@
 		});
 
 		socket.on('chatevent', function(data) {
-			output('<span class="username-msg">' + data.userName + ':</span> ' + data.message);
+//			output('<span class="username-msg">' + data.userName + ':</span> ' + data.message);
+			output('<span class="username-msg">' + data + ':</span> ');
 		});
 
 		socket.on('disconnect', function() {
@@ -52,7 +53,8 @@
 		function sendMessage() {
                         var message = $('#msg').val();
                         $('#msg').val('');
-                        socket.emit('chatevent', {userName: userName, message: message});
+//                        socket.emit('chatevent', {userName: userName, message: message});
+                        socket.emit('chatevent', 'message: '+message);
 		}
 
 		function output(message) {
